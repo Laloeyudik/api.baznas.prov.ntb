@@ -15,6 +15,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(compression());
 app.use(cors());
 
+app.get("/favicon.ico", (res,res)=> res.statusCode(204));
+
 /**
  * @description Testing with ejs
  * @routes login admin

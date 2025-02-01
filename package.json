@@ -9,6 +9,7 @@
   "scripts": {
     "node:dev": "dotenv -v APP_ENV=development nodemon app.js",
     "start": "node app.js",
+    "postinstall": "npx prisma generate",
     "node:prod": "dotenv -v APP_ENV=production node app.js",
     "prisma:seed": "dotenv -e .env.development npx prisma db seed",
     "prisma:generate": "dotenv -v APP_ENV=production npx prisma generate",

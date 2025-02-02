@@ -22,6 +22,13 @@ app.get("/", (req, res) => {
 });
 
 /**
+ * @description Route untuk semua modul
+ *
+ * */
+
+app.use("/v1/", adminRoute);
+
+/**
  * @description Testing with ejs
  * @routes login admin
  *
@@ -29,13 +36,6 @@ app.get("/", (req, res) => {
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "../views/"));
-
-/**
- * @description Route untuk semua modul
- *
- * */
-
-app.use("/v1/", adminRoute);
 
 /**
  * @scoop {global}
@@ -46,8 +46,6 @@ app.use("/v1/", adminRoute);
 
 app.use(function (err, req, res, next) {
   if (err) {
-    console.log(err.stack);
-
     const statusCode = err.status || 500;
     res.status(statusCode).json({
       status: "error",
@@ -56,8 +54,6 @@ app.use(function (err, req, res, next) {
       name: err.name,
       error: err.error ?? null,
     });
-  } else {
-    next();
   }
 });
 

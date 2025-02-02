@@ -50,7 +50,7 @@ app.use(function (err, req, res, next) {
     res.status(statusCode).json({
       status: "error",
       statusCode: statusCode,
-      message: err.message ?? "Opps.. server gangguan, mohon cobalagi nanti",
+      message: "Opps.. server gangguan, mohon cobalagi nanti",
       name: err.name,
       error: err.error ?? null,
     });

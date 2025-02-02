@@ -15,7 +15,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(compression());
 app.use(cors());
 
-app.get("/favicon.ico", (res,res)=> res.statusCode(204));
+app.get("/favicon.ico", (req, res) => res.statusCode(204));
+
+app.get("/", (req, res) => {
+  res.render("../views/home");
+});
 
 /**
  * @description Testing with ejs
@@ -25,17 +29,6 @@ app.get("/favicon.ico", (res,res)=> res.statusCode(204));
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "../views/"));
-
-app.get("/v1/login", (req, res) => {
-  res.render("../views/pages/getlink");
-});
-app.get("/v1/login/verify", (req, res) => {
-  const { otl_token } = req.query;
-  if (!otl_token) {
-    res.json("Token tidak ada");
-  }
-  res.render("../views/pages/login", { otl_token });
-});
 
 /**
  * @description Route untuk semua modul

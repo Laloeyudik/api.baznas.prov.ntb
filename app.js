@@ -1,6 +1,6 @@
 import app from "./src/index.js";
 import dotenv from "dotenv";
-import path from "path";
+dotenv.config();
 
 const envPath =
   process.env.APP_ENV === "production" ? ".env.production" : ".env.development";

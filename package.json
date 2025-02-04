@@ -9,6 +9,7 @@
   "scripts": {
     "node:dev": "nodemon app.js",
     "node:prod": "node app.js",
+    "start": "node app.js",
     "prisma:seed": "npx prisma db seed",
     "postinstall": "prisma generate",
     "prisma:generate": "npx prisma generate"

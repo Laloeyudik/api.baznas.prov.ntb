@@ -6,9 +6,12 @@
     <title>Login</title>
   </head>
   <body>
+    <a href="/">Back to Home</a>
+    <br />
+    <br />
     <form method="post" action="/v1/login/verify?otl_token=<%= otl_token %>">
-      <input name="email" placeholder="masukan email" required/>
-      <input name="password" placeholder="masukan password" required/>
+      <input name="email" placeholder="masukan email" required />
+      <input name="password" placeholder="masukan password" required />
       <button type="submit">Login</button>
     </form>
   </body>

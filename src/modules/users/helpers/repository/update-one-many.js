@@ -7,24 +7,38 @@ import prisma from "../../../../configs/db.js";
  *
  * */
 
-export function updatedById(collection, id = null, datas = {}) {
-  return prisma[collection].update({
-    where: {
-      id: id,
-    },
-    data: {
-      ...datas,
-    },
-  });
-}
+export default function update(
+  collection,
+  where = {},
+  data = {} || [],
+  options = {},
+  type = "upsert"
+) {
+  const collec = prisma[collection];
 
-export function updatedManyById(collection, id = null, datas = {}) {
-  return prisma[collection].updateMany({
-    where: {
-      id: id,
-    },
-    data: {
-      ...datas,
-    },
-  });
+  if (type === "one") {
+    return collec.update({
+      where: { ...where },
+      data: { ...data },
+      ...options,
+    });
+  } else if (type === "many") {
+    return collec.updateMany({
+      where: { ...where },
+      data: { ...data },
+      ...options,
+    });
+  } else if (type === "manyReturn") {
+    return collec.updateManyAndReturn({
+      where: { ...where },
+      data: { ...data },
+      ...options,
+    });
+  } else {
+    return collec.upsert({
+      where: { ...where },
+      data: { ...data },
+      ...options,
+    });
+  }
 }

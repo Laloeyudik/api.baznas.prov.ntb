@@ -5,5 +5,4 @@ node_modules
 
 prisma/seed.js
 
-
-.vercel
+views

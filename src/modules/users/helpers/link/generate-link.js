@@ -1,5 +1,5 @@
 export function generateLink(req, token) {
-  return new Promise((resolve, recject) => {
+  return new Promise(function (resolve, recject) {
     try {
       const protocol = req.get("x-forwarded-proto") || req.protocol;
       const links = `${protocol}://${req.get(

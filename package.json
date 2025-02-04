@@ -10,8 +10,8 @@
     "node:dev": "nodemon app.js",
     "node:prod": "node app.js",
     "start": "node app.js",
-    "prisma:seed": "npx prisma db seed",
     "postinstall": "prisma generate",
+    "prisma:seed": "npx prisma db seed",
     "prisma:generate": "npx prisma generate"
   },
   "keywords": [],

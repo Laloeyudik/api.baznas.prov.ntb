@@ -30,6 +30,9 @@ app.use(middRateLimiter());
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "../views/"));
 
+app.get("//favicon.ico", (req, res) => {
+  res.statusCode(204);
+});
 app.get("/", (req, res) => {
   res.render(path.join(__dirname, "../views/home"));
 });

@@ -3,7 +3,7 @@ import express from "express";
 import { fileURLToPath } from "url";
 import bodyParser from "body-parser";
 import middCors from "./shared/middlewares/headers/cors-middle.js";
-import middHeader from "./shared/middlewares/headers/header-middle.js";
+import {middHeader, middPermissionsPolicy} from "./shared/middlewares/headers/header-middle.js";
 import adminRoute from "./modules/users/routes/admin/admin-auth-route.js";
 import middRateLimiter from "./shared/middlewares/rate-limite/rate-limit.js";
 import middCompression from "./shared/middlewares/headers/compression-middle.js";
@@ -19,6 +19,7 @@ app.disable("x-powered-by'");
 app.use(middCompression);
 app.use(middCors);
 app.use(middHeader);
+app.use(middPermissionsPolicy);
 app.use(middRateLimiter());
 
 /**

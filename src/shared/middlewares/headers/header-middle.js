@@ -16,4 +16,14 @@ const middHeader = helmet({
     },
   },
 });
-export default middHeader;
+
+const middPermissionsPolicy = (req, res, next) => {
+  const protocol = req.get("x-forwarded-proto") || req.protocol;
+  const domain = `${protocol}://${req.get("host")}`;
+  res.setHeader(
+    "Permissions-Policy",
+    `geolocation=(self "${domain}"), microphone=()`
+  );
+  next();
+};
+export { middHeader, middPermissionsPolicy};

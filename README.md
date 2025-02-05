@@ -15,7 +15,5 @@
 
 ## 📝 Catatan
 - Implemen redis untuk chacing
-- 
-## 📝 Bug
-- ZodError
+
 

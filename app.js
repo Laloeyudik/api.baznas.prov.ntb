@@ -29,3 +29,7 @@ if (cluster.isPrimary) {
     console.log(`✅ Ok!..worker ${nodeProcess.pid}`);
   });
 }
+
+nodeProcess.on("uncaughtException", (err)=>{
+  nodeProcess.exit(1);
+})

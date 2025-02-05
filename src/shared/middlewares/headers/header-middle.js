@@ -7,5 +7,13 @@ const middHeader = helmet({
     },
   },
   xPoweredBy: false,
+  permissionsPolicy: {
+    features: {
+      geolocation: ["self"],
+      camera: [],
+      microphone: [],
+      fullscreen: ["*"],
+    },
+  },
 });
 export default middHeader;

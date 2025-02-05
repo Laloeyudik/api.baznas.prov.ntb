@@ -12,7 +12,7 @@ const middHeader = (req, res, next) => {
   helmet({
     contentSecurityPolicy: {
       directives: {
-        "script-src": ["'strict-dynamic'", `"${domain}"`],
+        "script-src": ["'self'", `"${domain}"`],
       },
     },
     xPoweredBy: false,

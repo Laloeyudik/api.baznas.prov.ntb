@@ -6,7 +6,7 @@ const middHeader = (req, res, next) => {
 
   res.setHeader(
     "Permissions-Policy",
-    `geolocation=(self ${domain}), microphone=(), camera=(), fullscreen=*`
+    `geolocation=(self "${domain}"), microphone=(), camera=(), fullscreen=*`
   );
 
   helmet({

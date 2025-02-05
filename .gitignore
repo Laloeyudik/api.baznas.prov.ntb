@@ -4,7 +4,5 @@ node_modules
 .env.development
 
 prisma/seed.js
-
-views
 .env
 .vercel
